@@ -15,7 +15,7 @@ const AstronautsNew = () => {
       e.preventDefault();
       setErrorMessage('');
       if (name && surname && birth_date && superpower) {
-        await astronauts.post('/astronauts/new', {
+        await astronauts.post('/astronauts/', {
           name,
           surname,
           birth_date,

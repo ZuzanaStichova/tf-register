@@ -7,13 +7,13 @@ const AstronautList = () => {
   const [astronautsList, setAstronautsList] = useState([]);
 
   const deleteAstronaut = async (id) => {
-    await astronauts.delete(`/astronauts/delete/${id}`)
+    await astronauts.delete(`/astronauts/${id}`)
   }
 
   useEffect(() => {
     try{
       async function fetchList() {
-        const response = await astronauts.get('/astronauts/list');
+        const response = await astronauts.get('/astronauts/');
         setAstronautsList(response.data.data);
       }
       fetchList();

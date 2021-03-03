@@ -14,7 +14,7 @@ const AstronautsEdit = (props) => {
   useEffect(() => {
     try{
       async function fetchData() {
-        const response = await astronauts.get(`/astronauts/details/${props.match.params.id}`);
+        const response = await astronauts.get(`/astronauts/${props.match.params.id}`);
         setName(response.data.data[0].name);
         setSurname(response.data.data[0].surname);
         setBirthDate(moment(response.data.data[0].birth_date).format("yyyy-MM-DD"));
@@ -31,7 +31,7 @@ const AstronautsEdit = (props) => {
       e.preventDefault();
       setErrorMessage('');
       if(name && surname && birth_date && superpower) {
-        await astronauts.put(`/astronauts/edit/${props.match.params.id}`, {
+        await astronauts.put(`/astronauts/${props.match.params.id}`, {
           name,
           surname,
           birth_date,
